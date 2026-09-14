@@ -129,4 +129,8 @@ Approximate runtimes on a modern laptop: 01 ≈ 4 min, 02 ≈ 2 min, 03 ≈ 5 mi
 - [`reports/executive_summary.md`](reports/executive_summary.md) — one page, dollars first
 - [`reports/model_documentation.md`](reports/model_documentation.md) — OSFI E-23-style validation pack
 - [`reports/backtest_report.md`](reports/backtest_report.md) — out-of-sample performance by segment, PSI stability, fairness audit
+- [`reports/Stark_Financial_JARVIS_Model_Review.pptx`](reports/Stark_Financial_JARVIS_Model_Review.pptx) — **the model review committee deck.** Thirteen slides taking a credit committee from the $578.7M question to the deploy recommendation: the profit curve as a business dial, the calibration evidence, the adverse-action mechanics, the test-fired PSI alarm, and the gender-free pipeline
 - `reports/figures/` — all charts at 150 dpi
+
+`reports/` also holds two earlier framings of the same review —
+`Credit_Scoring_Model_Review.pptx` and `presentation.pptx` — kept for the record.
