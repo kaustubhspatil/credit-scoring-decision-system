@@ -42,7 +42,7 @@ python score_applicant.py --riskiest --waterfall
 ## Repository layout
 
 ```
-capstone/
+.
 ├── data/
 │   ├── application_train.csv     ← 307,511 applications x 122 columns
 │   ├── bureau.csv                ← 1,716,428 bureau records (joins on SK_ID_CURR)
@@ -63,20 +63,33 @@ capstone/
 └── README.md
 ```
 
+## The notebooks
+
+Every notebook is committed with its outputs, so the results are readable without running anything.
+
+| Notebook | What it covers | Fast view |
+|---|---|---|
+| [`01_eda.ipynb`](notebooks/01_eda.ipynb) | target imbalance, the sentinel hunt, who defaults | [open](https://nbviewer.org/github/kaustubhspatil/credit-scoring-decision-system/blob/main/notebooks/01_eda.ipynb) |
+| [`02_preprocessing.ipynb`](notebooks/02_preprocessing.ipynb) | sentinel audit, missingness strategy, stratified splits | [open](https://nbviewer.org/github/kaustubhspatil/credit-scoring-decision-system/blob/main/notebooks/02_preprocessing.ipynb) |
+| [`03_feature_engineering.ipynb`](notebooks/03_feature_engineering.ipynb) | Five-Cs ratios, bureau aggregation, K-Means peer groups | [open](https://nbviewer.org/github/kaustubhspatil/credit-scoring-decision-system/blob/main/notebooks/03_feature_engineering.ipynb) |
+| [`04_modeling.ipynb`](notebooks/04_modeling.ipynb) | scorecard vs forest vs boosting, tuning, profit threshold | [open](https://nbviewer.org/github/kaustubhspatil/credit-scoring-decision-system/blob/main/notebooks/04_modeling.ipynb) |
+| [`05_explainability.ipynb`](notebooks/05_explainability.ipynb) | SHAP, adverse action, PSI, segments, fairness | [open](https://nbviewer.org/github/kaustubhspatil/credit-scoring-decision-system/blob/main/notebooks/05_explainability.ipynb) |
+
+> GitHub renders large notebooks slowly and sometimes gives up with *"Sorry, something went wrong."* The **Fast view** column opens the same file through nbviewer, which loads reliably.
+
 ## Reproduce end-to-end
 
 Python 3.11+, no GPU needed:
 
 ```bash
 pip install numpy pandas matplotlib scikit-learn joblib pyarrow scipy shap jupyter nbformat nbconvert ipykernel
-cd capstone
 jupyter notebook    # run notebooks 01 → 05 top to bottom
 ```
 
 Or headless:
 
 ```bash
-cd capstone/notebooks
+cd notebooks
 for nb in 01_eda 02_preprocessing 03_feature_engineering 04_modeling 05_explainability; do
     python -m nbconvert --to notebook --execute --inplace $nb.ipynb
 done
